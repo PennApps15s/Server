@@ -370,6 +370,7 @@ body #dashboard section#main #movies ul.movie-grid li {
   display: inline-block;
   padding-bottom: 80px;
   position: relative;
+  width: 240px;
 }
 html #dashboard section#main #movies ul.movie-grid li .overlay,
 body #dashboard section#main #movies ul.movie-grid li .overlay {
@@ -419,11 +420,13 @@ body #dashboard section#main #movies ul.movie-grid li .ttl {
   font-weight: 300;
   height: 40px;
   line-height: 40px;
+  width: 100%;
+  max-width: 240px;
 }
 html #dashboard section#main #movies ul.movie-grid li .ttl h1,
 body #dashboard section#main #movies ul.movie-grid li .ttl h1 {
   vertical-align: middle;
-  display: inline-block;
+  display: block;
   font-size: 20pt;
 }
 html #dashboard section#main #movies ul.movie-grid li .ttl .year,
