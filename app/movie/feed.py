@@ -48,5 +48,5 @@ def get_feed(user):
         for i, cell in enumerate(row):
             data[COLUMNS_FOR_FEED[i].replace('"', '')] = cell
         feed_movies.append(data)
-
+    print("Movie Feed", feed_movies[0], feed_movies[1])
     return feed_movies

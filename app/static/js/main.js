@@ -98,6 +98,10 @@
       l -= (parseInt(itemWidth)+10+0+parseInt(itemMargin));
       
       if(!!y) {
+        $.post('/movies/'+$("#"+i).attr('data-id')+"/review/",
+              {'action': ''}, function(data){
+                console.log("DONE!", data)
+              });
         $('#right').addClass('white');
         $('#right button').addClass('active');
         setTimeout(function() {
@@ -162,6 +166,8 @@
     else {
       $mark.addClass("check", fade, "linear");
       $mark.removeClass("default");
+      $.post('/movies/'+$('#'+i).attr('data-id')+"/review/",
+            {'action': 'like'});
     }
     right(false);
   }
@@ -187,6 +193,8 @@
     else {
       $mark.addClass("x", fade, "linear");
       $mark.removeClass("default");
+      $.post('/movies/'+$('#'+i).attr('data-id')+"/review/",
+            {'action': 'dislike'});
     }
     right(false);
   }

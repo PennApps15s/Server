@@ -18,11 +18,16 @@
     <div id="thin">
         <h1>{{ critic.name }} recommends:</h1>
         <div id="sort">
-            <button id="highest" class="s">Highest</button><button id="newest">Newest</button>
+            <button id="highest" class="s">
+                Highest
+            </button>
+            <button id="newest">
+                Newest
+            </button>
         </div>
     </div>
     <ul id="highest-grid" class="movie-grid s">
-        {% for movie in favorites %}
+        {% for movie in recents %}
             <li>
                 <div class="overlay">
                     <span class="quote">

@@ -1,5 +1,5 @@
 {% for movie in feed %}
-<div class="item" id="{{ loop.index0 }}">
+<div data-id="{{movie.id}}"class="item" id="{{ loop.index0 }}">
 	{% if not loop.first %}
     	<div class="dark"></div>
     {% endif %}

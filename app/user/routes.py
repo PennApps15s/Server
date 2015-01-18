@@ -157,7 +157,7 @@ def get_user_recent(user_id):
 
     return result
 
-@mod.route('/<user_id>/template/')
+@mod.route('/<user_id>/template/', methods=["GET"])
 @requires_login
 def get_user_template(user_id):
     if user_id == 'me':

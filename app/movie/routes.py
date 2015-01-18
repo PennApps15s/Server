@@ -19,19 +19,11 @@ def get_movie_feed():
 
     return json.dumps(movies), 200, {'Content-Type': 'application/json'}
 
-@movies_blueprint.route('/<movie_id>/', methods=["GET"])
-@requires_login
-def get_movie(movie_id):
-    movie = Movie.query.filter(Movie.id == movie_id)
-    if not movie.count() == 1:
-        return "Movie not found", 404
-
-    return movie.all()[0].to_json_response()
-
-@movies_blueprint.route('/<movie_id>/review', methods=["POST"])
+@movies_blueprint.route('/<movie_id>/review/', methods=["POST"])
 @requires_login
 def like_movie(movie_id):
-    if not Movie.query.get(movie_id):
+    movie = Movie.query.get(movie_id)
+    if not movie:
         return "Movie not found", 404
 
     action = request.json['action']
@@ -41,7 +33,7 @@ def like_movie(movie_id):
         action_code = 1
     elif action == 'unlike':
         action_code = -1
-    print g.user.id, movie_id, action_code, datetime
+    print movie.name+':', action, action_code
     created_review = Review(
         userId= g.user.id,
         movieId=movie_id,
@@ -50,5 +42,14 @@ def like_movie(movie_id):
     )
     db.session.add(created_review)
     db.session.commit()
-    
+    print movie.name+':', action, action_code
     return "OK", 200
+
+@movies_blueprint.route('/<movie_id>/', methods=["GET"])
+@requires_login
+def get_movie(movie_id):
+    movie = Movie.query.filter(Movie.id == movie_id)
+    if not movie.count() == 1:
+        return "Movie not found", 404
+
+    return movie.all()[0].to_json_response()

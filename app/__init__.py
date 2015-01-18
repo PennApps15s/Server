@@ -73,20 +73,6 @@ def logout():
     session['user'] = None
     return redirect('/login')
 
-@app.before_request
-def make_user():
-    from app.user.models import User
-    g.user = None
-    print("pre")
-    if 'session' in request.headers:
-        results = User.query.filter(User.session == request.headers['session'])
-        print('results', results, results.all())
-        if results.count() == 1:
-            g.user = results[0]
-            print("found", g.user)
-        else:
-            print("Error: Duplicate ")
-
 
 from app.user.routes import mod as usersModule
 app.register_blueprint(usersModule)
