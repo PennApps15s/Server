@@ -67,9 +67,9 @@
                     <header>Critics</header>
                     {% for critic in criticList %}
                         {% if loop.index == 1 %}
-                        <div data-id="{{critic.id}}"class="critic selected" id="critic-{{loop.index0}}">
+                        <div data-id="{{critic.id}}"class="critic selected" id="criticdiv-{{loop.index0}}">
                         {% else %}
-                        <div data-id="{{critic.id}}"class="critic" id="critic-{{loop.index0}}">
+                        <div data-id="{{critic.id}}"class="critic" id="criticdiv-{{loop.index0}}">
                         {% endif %}
                             <div class="circle"></div>
                             <hgroup>

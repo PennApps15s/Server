@@ -225,6 +225,7 @@ jQuery.extend({
         $('#critic-'+i).attr('data-id', data[i].id)
         $('#critic-'+i+' .critic-name').text(data[i].name);
         $('#critic-'+i+' .critic-publisher').text(data[i].criticPublication);
+        $('#critic-'+i+' .circle').text(data[i].percent+"%");
       }
       $.get( "user/"+data[0].id+"/template/", function( data ) {
         $( "#main" ).html( data );
