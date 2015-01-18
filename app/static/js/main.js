@@ -42,9 +42,9 @@ jQuery.extend({
         $('#highest-grid, #latest-grid, #highest, #newest').toggleClass('s');
       });
     }
-    resetClickListeners()
+    resetClickListeners();
 
-    criticCache = {}
+    criticCache = {};
     $('.critic').click(function(e){
       criticCache[$('.critic.selected').data('id')] = $('#main').html();
       
