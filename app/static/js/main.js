@@ -1,3 +1,17 @@
+jQuery.extend({
+    postJSON: function(url, data, callback) {
+      return jQuery.ajax({
+        type: "POST",
+        url: url,
+        data: JSON.stringify(data),
+        success: callback,
+        dataType: "json",
+        contentType: "application/json",
+        processData: false
+      });
+    }
+  });
+
 (function() {
   var i = 0;
   var itemWidth = 0;
@@ -98,10 +112,10 @@
       l -= (parseInt(itemWidth)+10+0+parseInt(itemMargin));
       
       if(!!y) {
-        $.post('/movies/'+$("#"+i).attr('data-id')+"/review/",
-              {'action': ''}, function(data){
-                console.log("DONE!", data)
-              });
+        $.postJSON('/movie/'+$("#"+i).attr('data-id')+"/review/",
+              {'action': ''}, function(e){
+              console.log("called back right")
+            });
         $('#right').addClass('white');
         $('#right button').addClass('active');
         setTimeout(function() {
@@ -166,8 +180,10 @@
     else {
       $mark.addClass("check", fade, "linear");
       $mark.removeClass("default");
-      $.post('/movies/'+$('#'+i).attr('data-id')+"/review/",
-            {'action': 'like'});
+      $.postJSON('/movie/'+$('#'+i).attr('data-id')+"/review/",
+            {'action': 'like'}, function(e){
+              console.log("called back up")
+            });
     }
     right(false);
   }
@@ -193,8 +209,10 @@
     else {
       $mark.addClass("x", fade, "linear");
       $mark.removeClass("default");
-      $.post('/movies/'+$('#'+i).attr('data-id')+"/review/",
-            {'action': 'dislike'});
+      $.postJSON('/movie/'+$('#'+i).attr('data-id')+"/review/",
+            {'action': 'dislike'}, function(e){
+              console.log("called back dislike")
+            });
     }
     right(false);
   }

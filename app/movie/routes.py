@@ -31,9 +31,9 @@ def like_movie(movie_id):
     action_code = 0
     if action == 'like':
         action_code = 1
-    elif action == 'unlike':
+    elif action == 'dislike':
         action_code = -1
-    print movie.name+':', action, action_code
+    print movie.Title+':', action, action_code
     created_review = Review(
         userId= g.user.id,
         movieId=movie_id,
@@ -42,7 +42,6 @@ def like_movie(movie_id):
     )
     db.session.add(created_review)
     db.session.commit()
-    print movie.name+':', action, action_code
     return "OK", 200
 
 @movies_blueprint.route('/<movie_id>/', methods=["GET"])
