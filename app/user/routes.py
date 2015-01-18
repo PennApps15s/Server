@@ -94,6 +94,7 @@ def get_user_shared_likes(user_id):
         WHERE "userId" = %s AND "movieId" IN
             (SELECT "movieId" FROM reviews
              WHERE "userId" = %s AND score=1)
+        LIMIT 7
         """ % (user_id, g.user.id)
 
     columns = ['id', 'Title', 'Year', 'Rating', 'Poster']
