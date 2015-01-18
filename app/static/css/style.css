@@ -351,12 +351,9 @@ body #dashboard section#main #movies #thin #sort button#newest {
   border-top-right-radius: 14px;
   border-bottom-right-radius: 14px;
 }
-html #dashboard section#main #movies .grid-container,
-body #dashboard section#main #movies .grid-container {
-  position: relative;
-}
 html #dashboard section#main #movies ul.movie-grid,
 body #dashboard section#main #movies ul.movie-grid {
+  list-style: none;
   overflow-y: scroll;
   overflow-x: scroll;
   position: absolute;

@@ -66,17 +66,17 @@
                 <section class="sidebar" id="critics">
                     <header>Critics</header>
                     {% for critic in criticList %}
-                        {% if loop.index == 1 %}
-                        <div data-id="{{critic.id}}"class="critic selected" id="criticdiv-{{loop.index0}}">
+                        {% if criticInfo and loop.index==1 %}
+                        <div data-id="{{critic.id}}"class="critic selected">
                         {% else %}
-                        <div data-id="{{critic.id}}"class="critic" id="criticdiv-{{loop.index0}}">
+                        <div data-id="{{critic.id}}"class="critic">
                         {% endif %}
                             <div class="circle"></div>
                             <hgroup>
-                                <h2 class="critic-name">
+                                <h2 id="#name-{{ loop.index0 }}">
                                     {{ critic['name'] }}
                                 </h2>
-                                <h3 class="critic-publisher">
+                                <h3 id="#publisher-{{ loop.index0 }}">
                                     {{ critic['criticPublication'] }}
                                 </h3>
                             </hgroup>

@@ -1,62 +1,22 @@
 <html>
 <head>
-<style>
-	body{
-		background-color: #50E3C2;
-		font-family: "Proxima Nova","Helvetica Neue"
-	}
-	input{
-		background-color: white;
-		border: none;
-		width: 500px;
-		height: 60px;
-		margin: 4px;
-		border-radius: 30px;
-		padding: 20px;
-		font-family: "Proxima Nova","Helvetica Neue",Helvetica,Arial,sans-serif;
-		font-size: 20px;
-	}
-	#center{
-		position: absolute;
-		top: 0;
-		left: 0;
-		bottom: 0;
-		right: 0;
-		margin: auto;
-		text-align: center;
-		height:500px;
-	}
-	form{
-		margin: 10px;
-	}
-	#login{
-		float: left;
-		margin-left: 250px;
-		margin-top: 50px;
-	}
-	#signup{
-		float: right;
-		margin-right: 250px;
-	}
-</style>
 </head>
 <body>
-	<div id="center">
-		<form id="login" action="user/login/" method="POST">
-			<input type="text" name="email" placeholder="Email">
-			<br>
-			<input type="password" name="password" placeholder="Password">
-			<br>
-			<input type="submit" value="Submit">
-		</form>
-		<form id="signup" action="user/" method="POST">
-			<input type="text" name="name" placeholder="Full Name">
-			<br>
-			<input type="text" name="email" placeholder="Email">
-			<br>
-			<input type="password" name="password" placeholder="Password">
-			<br>
-			<input type="submit" value="Submit">
-		</form>
-	</div>
+	<form action="user/login/" method="POST">
+		<input type="text" name="email" placeholder="Email">
+		<br>
+		<input type="password" name="password" placeholder="Password">
+		<br>
+		<input type="submit" value="Submit">
+	</form>
+	<br><br>
+	<form action="user/" method="POST">
+		<input type="text" name="name" placeholder="Full Name">
+		<br>
+		<input type="text" name="email" placeholder="Email">
+		<br>
+		<input type="password" name="password" placeholder="Password">
+		<br>
+		<input type="submit" value="Submit">
+	</form>
 </body>

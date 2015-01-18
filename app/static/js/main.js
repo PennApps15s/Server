@@ -20,67 +20,70 @@ jQuery.extend({
   var slide = 300;
   var fade = 500;
 
-  itemWidth = $("#0").width();
+  $(function() { 
+    itemWidth = $("#0").width();
 
-  $("#rb").click(right);
-  $(document).bind('keyup', 'right', right);
+    $("#rb").click(right);
+    $(document).bind('keyup', 'right', right);
 
-  $("#lb").click(left);
-  $(document).bind('keyup', 'left', left);
+    $("#lb").click(left);
+    $(document).bind('keyup', 'left', left);
 
-  $("#up button").click(like);
-  $(document).bind('keyup', 'up', like);
+    $("#up button").click(like);
+    $(document).bind('keyup', 'up', like);
 
-  $("#down button").click(dislike);
-  $(document).bind('keyup', 'down', dislike);
+    $("#down button").click(dislike);
+    $(document).bind('keyup', 'down', dislike);
 
-  $(document).bind('keyup', 'return', s2d);
+    $(document).bind('keyup', 'return', s2d);
 
-  function resetClickListeners(){
-    $('#highest, #newest').click(function(e){
-      $('#highest-grid, #latest-grid, #highest, #newest').toggleClass('s');
-    });
-  }
-  resetClickListeners()
-
-  criticCache = {}
-  $('.critic').click(function(e){
-    criticCache[$('.critic.selected').data('id')] = $('#main').html();
-    
-    $('.critic.selected').removeClass('selected');
-    $('#highest-grid, #latest-grid, #highest, #newest').removeClass('s')
-    $(this).addClass('selected');
-    
-    id = $(this).data('id');
-    if(criticCache[id]){
-      $( "#main" ).html( criticCache[id] );
-      resetClickListeners();
-    }else{
-      $.get( "user/"+id+"/template/", function( data ) {
-        $( "#main" ).html( data );
-        resetClickListeners();
+    function resetClickListeners(){
+      $('#highest, #newest').click(function(e){
+        $('#highest-grid, #latest-grid, #highest, #newest').toggleClass('s');
       });
     }
-  });
+    resetClickListeners()
+
+    criticCache = {}
+    $('.critic').click(function(e){
+      criticCache[$('.critic.selected').data('id')] = $('#main').html();
+      
+      $('.critic.selected').removeClass('selected');
+      $('#highest-grid, #latest-grid, #highest, #newest').removeClass('s')
+      $(this).addClass('selected');
+      
+      id = $(this).data('id');
+      if(criticCache[id]){
+        $( "#main" ).html( criticCache[id] );
+        resetClickListeners();
+      }else{
+        $.get( "user/"+id+"/template/", function( data ) {
+          $( "#main" ).html( data );
+          resetClickListeners();
+        });
+      }
+    });
 
 
-  itemMargin = $("#0").css("margin-right");
+    itemMargin = $("#0").css("margin-right");
 
-  l = ($(window).width()/2-(itemWidth+10)/2);
+    l = ($(window).width()/2-(itemWidth+10)/2);
 
-  $("#carousel").width(($(".item").length)*(itemWidth+10+parseInt(itemMargin))+"px");
-  $("#carousel").css("margin-left", ($(window).width()/2-(itemWidth+10)/2));
+    $("#carousel").width(($(".item").length)*(itemWidth+10+parseInt(itemMargin))+"px");
+    $("#carousel").css("margin-left", ($(window).width()/2-(itemWidth+10)/2));
 
-  layout();
-  $(window).resize(function() {
-      layout();
-  });
+    layout();
+    $(window).resize(function() {
+        layout();
+    });
 
-  $('#scrollToStage').click(s2s);
-  $('#scrollToDash').click(s2d);
+    $('#scrollToStage').click(s2s);
+    $('#scrollToDash').click(s2d);
 
-  $("li").hover(function(){
-    $(this).children(".overlay").fadeToggle('fast');
+    $("li").hover(function(){
+      $(this).children(".overlay").fadeToggle('fast');
+    });
+
   });
 
   function s2s() {
@@ -103,6 +106,7 @@ jQuery.extend({
     $("#dashboard").height($(window).height());
     $("#stage").height($(window).height());
   }
+
   function right(y) {
     if(i < ($(".item").length-2)) {
       l -= (parseInt(itemWidth)+10+0+parseInt(itemMargin));
@@ -129,9 +133,6 @@ jQuery.extend({
       i++;
       $("#"+i).children(".dark").fadeOut(fade);
       $("#"+i).children(".d").removeClass( "d", fade, "linear");
-      if(voteCount > 10){
-        loadBottomPane();
-      }
     }
   }
 
@@ -156,7 +157,7 @@ jQuery.extend({
       $("#"+i).children(".d").removeClass( "d", fade, "linear");
     }
   }
-  window.voteCount = 0;
+
   function like() {
     var $mark = $('#'+i).children(".mark");
     
@@ -181,9 +182,8 @@ jQuery.extend({
       $mark.removeClass("default");
       $.postJSON('/movie/'+$('#'+i).attr('data-id')+"/review/",
             {'action': 'like'}, function(e){
-              console.log("called back up");
+              console.log("called back up")
             });
-      voteCount++;
     }
     right(false);
   }
@@ -213,25 +213,8 @@ jQuery.extend({
             {'action': 'dislike'}, function(e){
               console.log("called back dislike")
             });
-      voteCount++;
     }
     right(false);
-  }
-
-  function loadBottomPane(){
-    $.get('/user/criticList/', function(data){
-      console.log("Got Data", data)
-      for(var i in data){
-        $('#critic-'+i).attr('data-id', data[i].id)
-        $('#critic-'+i+' .critic-name').text(data[i].name);
-        $('#critic-'+i+' .critic-publisher').text(data[i].criticPublication);
-        $('#critic-'+i+' .circle').text(data[i].percent+"%");
-      }
-      $.get( "user/"+data[0].id+"/template/", function( data ) {
-        $( "#main" ).html( data );
-        resetClickListeners();
-      });
-    });
   }
 
 })();
