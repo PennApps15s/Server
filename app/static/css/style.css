@@ -1,0 +1,757 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+html :focus,
+body :focus {
+  outline-color: transparent;
+  outline-style: none;
+}
+html .hidden,
+body .hidden {
+  display: none;
+}
+html hr,
+body hr {
+  height: 4px;
+  background-color: #50e3c2;
+  width: 100%;
+  display: block;
+  margin: 0;
+  border: 0;
+}
+html #dashboard,
+body #dashboard {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  display: none;
+  color: #262626;
+  position: relative;
+}
+html #dashboard header#banner,
+body #dashboard header#banner {
+  background-color: #262626;
+  height: 80px;
+  top: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+}
+html #dashboard header#banner #r,
+body #dashboard header#banner #r {
+  float: right;
+}
+html #dashboard header#banner button#scrollToStage,
+body #dashboard header#banner button#scrollToStage {
+  float: left;
+  display: block;
+  font-size: 12pt;
+  margin: 25px;
+  background-color: #262626;
+  color: #50e3c2;
+  border: 1px solid #50e3c2;
+  padding: 5px 14px;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: 0.2s all linear;
+}
+html #dashboard header#banner button#scrollToStage:hover,
+body #dashboard header#banner button#scrollToStage:hover {
+  background-color: #50e3c2;
+  color: #262626;
+}
+html #dashboard header#banner button#search,
+body #dashboard header#banner button#search,
+html #dashboard header#banner button#user,
+body #dashboard header#banner button#user {
+  height: 80px;
+  background-color: #262626;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  width: 80px;
+  float: right;
+  cursor: pointer;
+}
+html #dashboard header#banner button#search,
+body #dashboard header#banner button#search {
+  background-image: url("../img/search.png");
+}
+html #dashboard header#banner button#user,
+body #dashboard header#banner button#user {
+  margin-right: 20px;
+  background-image: url("../img/profile.png");
+}
+html #dashboard aside,
+body #dashboard aside {
+  width: 300px;
+  position: absolute;
+  left: 0;
+  top: 80px;
+  bottom: 0;
+  border-right: 2px solid #50e3c2;
+}
+html #dashboard aside header#t,
+body #dashboard aside header#t {
+  font-size: 14pt;
+  text-align: center;
+  padding: 15px 30px;
+  line-height: 1.5;
+}
+html #dashboard aside section header,
+body #dashboard aside section header {
+  background-color: #50e3c2;
+  color: white;
+  height: 30px;
+  padding-left: 20px;
+  line-height: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-weight: 600;
+}
+html #dashboard aside section div,
+body #dashboard aside section div {
+  cursor: pointer;
+  height: 100px;
+  display: block;
+  color: #979797;
+  background-color: white;
+  transition: 0.5s all linear;
+}
+html #dashboard aside section div.selected,
+body #dashboard aside section div.selected,
+html #dashboard aside section div:hover,
+body #dashboard aside section div:hover,
+html #dashboard aside section div:active,
+body #dashboard aside section div:active {
+  color: white;
+  background-color: rgba(80, 227, 194, 0.6);
+}
+html #dashboard aside section div.selected .circle,
+body #dashboard aside section div.selected .circle,
+html #dashboard aside section div:hover .circle,
+body #dashboard aside section div:hover .circle,
+html #dashboard aside section div:active .circle,
+body #dashboard aside section div:active .circle {
+  background-color: white;
+  color: #50e3c2;
+}
+html #dashboard aside section div .circle,
+body #dashboard aside section div .circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 60px;
+  background-color: #d8d8d8;
+  font-size: 18px;
+  display: inline-block;
+  color: white;
+  text-align: center;
+  line-height: 60px;
+  margin: 20px 15px 20px 20px;
+}
+html #dashboard aside section div hgroup,
+body #dashboard aside section div hgroup {
+  height: 50px;
+  margin: 25px 0;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 14pt;
+}
+html #dashboard aside section div hgroup h2,
+body #dashboard aside section div hgroup h2,
+html #dashboard aside section div hgroup h3,
+body #dashboard aside section div hgroup h3 {
+  line-height: 25px;
+}
+html #dashboard aside section div hgroup h3,
+body #dashboard aside section div hgroup h3 {
+  font-size: 11pt;
+}
+html #dashboard section#main,
+body #dashboard section#main {
+  position: absolute;
+  top: 80px;
+  right: 0;
+  left: 304px;
+  bottom: 0px;
+  margin: 0 40px;
+}
+html #dashboard section#main header,
+body #dashboard section#main header {
+  height: 200px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  border-bottom: 1px solid #979797;
+  overflow: hidden;
+}
+html #dashboard section#main header #rating,
+body #dashboard section#main header #rating {
+  vertical-align: top;
+  width: 120px;
+  height: 120px;
+  border-radius: 120px;
+  background-color: #facb60;
+  text-align: center;
+  display: inline-block;
+  clear: both;
+  margin: 40px 20px 40px 0;
+  color: white;
+}
+html #dashboard section#main header #rating div,
+body #dashboard section#main header #rating div {
+  height: 60px;
+  margin: 30px;
+}
+html #dashboard section#main header #rating div #percent,
+body #dashboard section#main header #rating div #percent {
+  font-size: 26pt;
+  display: block;
+  line-height: 40px;
+  font-weight: bold;
+}
+html #dashboard section#main header #rating div #mt,
+body #dashboard section#main header #rating div #mt {
+  font-size: 14pt;
+  display: block;
+  font-weight: 300;
+  line-height: 20px;
+}
+html #dashboard section#main header h1,
+body #dashboard section#main header h1 {
+  font-size: 22pt;
+  width: 250px;
+  margin: 65px 0;
+  vertical-align: top;
+  display: inline-block;
+  line-height: 1.2;
+  height: 70px;
+}
+html #dashboard section#main header h1 strong,
+body #dashboard section#main header h1 strong {
+  font-weight: 700;
+}
+html #dashboard section#main header #small,
+body #dashboard section#main header #small {
+  height: 90px;
+  margin: 55px 20px;
+  display: inline-block;
+}
+html #dashboard section#main header #small img,
+body #dashboard section#main header #small img,
+html #dashboard section#main header #small #ellipse,
+body #dashboard section#main header #small #ellipse {
+  height: 100%;
+  width: 60px;
+  background-color: #d8d8d8;
+  margin-right: 20px;
+}
+html #dashboard section#main header #small #ellipse,
+body #dashboard section#main header #small #ellipse {
+  display: inline-block;
+  line-height: 90px;
+  color: #d8d8d8;
+  background-color: white;
+  text-align: center;
+  font-size: 30pt;
+  vertical-align: top;
+}
+html #dashboard section#main header #follow,
+body #dashboard section#main header #follow {
+  display: block;
+  float: right;
+  font-size: 12pt;
+  background-color: white;
+  color: #50e3c2;
+  border: 1px solid #50e3c2;
+  padding: 5px 14px;
+  margin-top: 55px;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: 0.2s all linear;
+}
+html #dashboard section#main header #follow:hover,
+body #dashboard section#main header #follow:hover {
+  background-color: #50e3c2;
+  color: white;
+}
+html #dashboard section#main #movies,
+body #dashboard section#main #movies {
+  position: absolute;
+  top: 200px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  overflow-y: scroll;
+}
+html #dashboard section#main #movies #thin,
+body #dashboard section#main #movies #thin {
+  position: absolute;
+  height: 30px;
+  left: 0;
+  right: 0;
+  margin: 25px 0;
+}
+html #dashboard section#main #movies #thin h1,
+body #dashboard section#main #movies #thin h1 {
+  line-height: 30px;
+  font-size: 14pt;
+  display: inline-block;
+  vertical-align: top;
+}
+html #dashboard section#main #movies #thin #sort,
+body #dashboard section#main #movies #thin #sort {
+  float: right;
+  vertical-align: top;
+  display: inline-block;
+}
+html #dashboard section#main #movies #thin #sort:before,
+body #dashboard section#main #movies #thin #sort:before,
+html #dashboard section#main #movies #thin #sort:after,
+body #dashboard section#main #movies #thin #sort:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+html #dashboard section#main #movies #thin #sort:after,
+body #dashboard section#main #movies #thin #sort:after {
+  clear: both;
+}
+html #dashboard section#main #movies #thin #sort button,
+body #dashboard section#main #movies #thin #sort button {
+  display: inline-block;
+  font-size: 10pt;
+  background-color: white;
+  color: #50e3c2;
+  border: 1px solid #50e3c2;
+  padding: 5px 14px;
+  border-top-left-radius: 14px;
+  border-bottom-left-radius: 14px;
+  cursor: pointer;
+  transition: 0.2s all linear;
+}
+html #dashboard section#main #movies #thin #sort button:hover,
+body #dashboard section#main #movies #thin #sort button:hover,
+html #dashboard section#main #movies #thin #sort button.s,
+body #dashboard section#main #movies #thin #sort button.s {
+  background-color: #7cead1;
+  color: white;
+}
+html #dashboard section#main #movies #thin #sort button#newest,
+body #dashboard section#main #movies #thin #sort button#newest {
+  border-radius: 0;
+  border-top-right-radius: 14px;
+  border-bottom-right-radius: 14px;
+}
+html #dashboard section#main #movies ul.movie-grid,
+body #dashboard section#main #movies ul.movie-grid {
+  list-style: none;
+  overflow-y: scroll;
+  overflow-x: scroll;
+  position: absolute;
+  top: 80px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.5s opacity linear;
+  opacity: 0;
+}
+html #dashboard section#main #movies ul.movie-grid li,
+body #dashboard section#main #movies ul.movie-grid li {
+  margin-right: 15px;
+  display: inline-block;
+  padding-bottom: 80px;
+  position: relative;
+}
+html #dashboard section#main #movies ul.movie-grid li .overlay,
+body #dashboard section#main #movies ul.movie-grid li .overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 360px;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+html #dashboard section#main #movies ul.movie-grid li .overlay span,
+body #dashboard section#main #movies ul.movie-grid li .overlay span {
+  height: 250px;
+  width: 200px;
+  color: white;
+  padding: 20px;
+  font-size: 16pt;
+  line-height: 1.5;
+  display: block;
+}
+html #dashboard section#main #movies ul.movie-grid li .overlay .ex,
+body #dashboard section#main #movies ul.movie-grid li .overlay .ex {
+  width: 37px;
+  cursor: pointer;
+  padding: 16px;
+  float: left;
+  height: 37px;
+}
+html #dashboard section#main #movies ul.movie-grid li .overlay .v,
+body #dashboard section#main #movies ul.movie-grid li .overlay .v {
+  width: 37px;
+  cursor: pointer;
+  padding: 16px;
+  float: right;
+  height: 37px;
+}
+html #dashboard section#main #movies ul.movie-grid li img.poster,
+body #dashboard section#main #movies ul.movie-grid li img.poster {
+  width: 240px;
+  height: 360px;
+  padding-bottom: 10px;
+  display: block;
+}
+html #dashboard section#main #movies ul.movie-grid li .ttl,
+body #dashboard section#main #movies ul.movie-grid li .ttl {
+  font-weight: 300;
+  height: 40px;
+  line-height: 40px;
+}
+html #dashboard section#main #movies ul.movie-grid li .ttl h1,
+body #dashboard section#main #movies ul.movie-grid li .ttl h1 {
+  vertical-align: middle;
+  display: inline-block;
+  font-size: 20pt;
+}
+html #dashboard section#main #movies ul.movie-grid li .ttl .year,
+body #dashboard section#main #movies ul.movie-grid li .ttl .year {
+  vertical-align: middle;
+  display: inline-block;
+  padding: 0 2px;
+  color: #979797;
+  font-size: 10pt;
+}
+html #dashboard section#main #movies ul.movie-grid li .ttl .tomato,
+body #dashboard section#main #movies ul.movie-grid li .ttl .tomato,
+html #dashboard section#main #movies ul.movie-grid li .ttl .rotten,
+body #dashboard section#main #movies ul.movie-grid li .ttl .rotten {
+  vertical-align: middle;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-position: 0px 0x;
+  background-size: 100% 100%;
+}
+html #dashboard section#main #movies ul.movie-grid li .ttl .tomato,
+body #dashboard section#main #movies ul.movie-grid li .ttl .tomato {
+  background-image: url("../img/fresh.png");
+}
+html #dashboard section#main #movies ul.movie-grid li .ttl .rotten,
+body #dashboard section#main #movies ul.movie-grid li .ttl .rotten {
+  background-image: url("../img/rotten.png");
+}
+html #dashboard section#main #movies ul.movie-grid li .ttl .teeny,
+body #dashboard section#main #movies ul.movie-grid li .ttl .teeny {
+  vertical-align: middle;
+  display: inline-block;
+  font-size: 10pt;
+}
+html #dashboard section#main #movies ul.movie-grid.s,
+body #dashboard section#main #movies ul.movie-grid.s {
+  opacity: 1;
+}
+html #stage,
+body #stage {
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+  background-color: #262626;
+  position: relative;
+}
+html #stage #carousel,
+body #stage #carousel {
+  margin-bottom: 100px;
+  bottom: 0;
+  min-width: 100%;
+  height: 610px;
+  overflow-y: hidden;
+  text-align: left;
+  clear: right;
+  display: block;
+}
+html #stage #carousel .item,
+body #stage #carousel .item {
+  display: inline-block;
+  position: relative;
+  background-color: white;
+  margin-right: 80px;
+  padding: 5px;
+  width: 400px;
+  font-size: 0 !important;
+  content: " ";
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.6);
+}
+html #stage #carousel .item .mark,
+body #stage #carousel .item .mark {
+  position: absolute;
+  background-position: center center;
+  background-repeat: no-repeat;
+  margin: 35;
+  margin-top: 200px;
+  height: 200px;
+  z-index: 4;
+  background-size: 100% 100%;
+  opacity: 0.7;
+}
+html #stage #carousel .item .mark.default,
+body #stage #carousel .item .mark.default {
+  opacity: 0;
+  transform: scale(5, 5);
+}
+html #stage #carousel .item .mark.check,
+body #stage #carousel .item .mark.check {
+  transition-duration: 500ms;
+  margin-left: 74px;
+  width: 251px;
+  background-image: url("../img/like.png");
+}
+html #stage #carousel .item .mark.x,
+body #stage #carousel .item .mark.x {
+  transition-duration: 500ms;
+  margin-left: 100px;
+  width: 200px;
+  background-image: url("../img/dislike.png");
+}
+html #stage #carousel .item img,
+body #stage #carousel .item img {
+  height: 600px;
+  width: 400px;
+}
+html #stage #carousel .item .dark,
+body #stage #carousel .item .dark {
+  position: absolute;
+  z-index: 3;
+  margin-left: -5px;
+  margin-top: -5px;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+}
+html #stage #controls,
+body #stage #controls {
+  display: block;
+  position: relative;
+  height: 100px;
+  margin: 70px 0;
+  margin-top: 30px;
+  width: 100%;
+  clear: both;
+}
+html #stage #controls button,
+body #stage #controls button {
+  float: left;
+  height: 38px;
+  width: 38px;
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  margin-right: 15px;
+  background-repeat: no-repeat;
+  content: '';
+  opacity: 0.5;
+  font-size: 0pt;
+  cursor: pointer;
+  transition: 0.2s all linear;
+}
+html #stage #controls button:hover,
+body #stage #controls button:hover {
+  opacity: 1;
+}
+html #stage #controls span,
+body #stage #controls span {
+  float: left;
+  display: block;
+  line-height: 38px;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: left;
+  clear: right;
+  transition: 0.2s all linear;
+}
+html #stage #controls #left,
+body #stage #controls #left {
+  padding-top: 20px;
+  float: left;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 200px;
+}
+html #stage #controls #left span,
+body #stage #controls #left span {
+  float: right;
+}
+html #stage #controls #left button,
+body #stage #controls #left button {
+  float: right;
+  background-image: url("../img/key_left.png");
+}
+html #stage #controls #left button.active,
+body #stage #controls #left button.active,
+html #stage #controls #left button :active,
+body #stage #controls #left button :active {
+  background-image: url("../img/key_left_active.png");
+}
+html #stage #controls #left:hover button,
+body #stage #controls #left:hover button,
+html #stage #controls #left.white button,
+body #stage #controls #left.white button {
+  opacity: 1;
+}
+html #stage #controls #left:hover span,
+body #stage #controls #left:hover span,
+html #stage #controls #left.white span,
+body #stage #controls #left.white span {
+  color: white;
+}
+html #stage #controls #center,
+body #stage #controls #center {
+  text-align: center;
+  width: 94px;
+  margin: 0 auto;
+  position: relative;
+  top: -30px;
+}
+html #stage #controls #center #up,
+body #stage #controls #center #up {
+  padding-top: 7px;
+  height: 38px;
+  display: block;
+}
+html #stage #controls #center #up button,
+body #stage #controls #center #up button {
+  background-image: url("../img/key_up.png");
+  display: block;
+  clear: both;
+  margin-bottom: 10px;
+}
+html #stage #controls #center #up button.active,
+body #stage #controls #center #up button.active,
+html #stage #controls #center #up button :active,
+body #stage #controls #center #up button :active {
+  background-image: url("../img/key_up_active.png");
+}
+html #stage #controls #center #up span,
+body #stage #controls #center #up span {
+  display: block;
+  margin: 0 auto;
+  width: 38px;
+  text-align: center;
+}
+html #stage #controls #center #up:hover button,
+body #stage #controls #center #up:hover button,
+html #stage #controls #center #up.white button,
+body #stage #controls #center #up.white button {
+  opacity: 1;
+}
+html #stage #controls #center #up:hover span,
+body #stage #controls #center #up:hover span,
+html #stage #controls #center #up.white span,
+body #stage #controls #center #up.white span {
+  color: white;
+}
+html #stage #controls #center #down,
+body #stage #controls #center #down {
+  height: 38px;
+  margin-top: 10px;
+  display: block;
+}
+html #stage #controls #center #down button,
+body #stage #controls #center #down button {
+  background-image: url("../img/key_down.png");
+}
+html #stage #controls #center #down button.active,
+body #stage #controls #center #down button.active,
+html #stage #controls #center #down button :active,
+body #stage #controls #center #down button :active {
+  background-image: url("../img/key_down_active.png");
+}
+html #stage #controls #center #down:hover button,
+body #stage #controls #center #down:hover button,
+html #stage #controls #center #down.white button,
+body #stage #controls #center #down.white button {
+  opacity: 1;
+}
+html #stage #controls #center #down:hover span,
+body #stage #controls #center #down:hover span,
+html #stage #controls #center #down.white span,
+body #stage #controls #center #down.white span {
+  color: white;
+}
+html #stage #controls #right,
+body #stage #controls #right {
+  padding-top: 20px;
+  float: left;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 200px;
+  float: right;
+}
+html #stage #controls #right button,
+body #stage #controls #right button {
+  margin: 0;
+  margin-left: 15px;
+  background-image: url("../img/key_right.png");
+}
+html #stage #controls #right button.active,
+body #stage #controls #right button.active,
+html #stage #controls #right button :active,
+body #stage #controls #right button :active {
+  background-image: url("../img/key_right_active.png");
+}
+html #stage #controls #right span,
+body #stage #controls #right span {
+  text-align: right;
+}
+html #stage #controls #right:hover button,
+body #stage #controls #right:hover button,
+html #stage #controls #right.white button,
+body #stage #controls #right.white button {
+  opacity: 1;
+}
+html #stage #controls #right:hover span,
+body #stage #controls #right:hover span,
+html #stage #controls #right.white span,
+body #stage #controls #right.white span {
+  color: white;
+}
+html #stage #done,
+body #stage #done {
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: #50e3c2;
+}
+html #stage #done #scrollToDash,
+body #stage #done #scrollToDash {
+  font-size: 12pt;
+  background-color: #262626;
+  color: #50e3c2;
+  border: 1px solid #50e3c2;
+  padding: 6px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s all linear;
+}
+html #stage #done #scrollToDash:hover,
+body #stage #done #scrollToDash:hover {
+  background-color: #50e3c2;
+  outline: none;
+  color: #262626;
+}

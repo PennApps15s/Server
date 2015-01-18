@@ -1,0 +1,9 @@
+{% for movie in feed %}
+<div class="item" id="{{ loop.index0 }}">
+	{% if not loop.first %}
+    	<div class="dark"></div>
+    {% endif %}
+    <div class="mark default d"></div>
+    <img src="{{ movie['Poster'] }}" alt="{{ movie['Title'] }}">
+</div>
+{% endfor %}

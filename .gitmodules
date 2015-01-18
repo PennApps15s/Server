@@ -1,0 +1,3 @@
+[submodule "db_imports/metacritic_scrape"]
+	path = db_imports/metacritic_scrape
+	url = git@github.com:PennApps15s/metacritic_scrape.git

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="static/css/reset.css">
+        <link rel="stylesheet" href="static/css/style.css">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div id="stage">
+            <hr/>
+            <div id="controls">
+                <div id="left">
+                    <span>Go Back</span>
+                    <button id="lb"></button>
+                </div>
+                <div id="center">
+                    <div id="up">
+                        <span>Like</span>
+                        <button></button>
+                    </div>
+                    <div id="down">
+                        <button></button>
+                        <span>Down</span>
+                    </div>
+                </div>
+                <div id="right">
+                    <span>Skip</span>
+                    <button id="rb"></button>
+                </div>
+            </div>
+
+            <div id="carousel">
+                {{ carousel_template|safe }}
+            </div>
+
+            <div id="done">
+                Press <button id="scrollToDash">Enter</button> To See Your Matches
+            </div>
+
+        </div>
+
+        <div id="dashboard">
+            <hr/>
+            <header id="banner">
+                <button id="scrollToStage">Rate more movies</button>
+                <div id="r">
+                    <button id="user"></button>
+                    <button id="search"></button>
+                </div>
+            </header>
+            <aside>
+                <header id="t">People who share your taste in movies</header>
+                <section class="sidebar" id="critics">
+                    <header>Critics</header>
+                    {% for critic in criticList %}
+                        {% if criticInfo and loop.index==1 %}
+                        <div data-id="{{critic.id}}"class="critic selected">
+                        {% else %}
+                        <div data-id="{{critic.id}}"class="critic">
+                        {% endif %}
+                            <div class="circle"></div>
+                            <hgroup>
+                                <h2 id="#name-{{ loop.index0 }}">
+                                    {{ critic['name'] }}
+                                </h2>
+                                <h3 id="#publisher-{{ loop.index0 }}">
+                                    {{ critic['criticPublication'] }}
+                                </h3>
+                            </hgroup>
+                        </div>
+                    {% endfor %}
+                </section>
+                <!-- <section class="sidebar" id="community">
+                    <header>In The Community</header>
+                    <div>
+                        <div class="circle">85%</div>
+                        <hgroup>
+                            <h2>Roger Ebert</h2>
+                            <h3>The New York Times</h3>
+                        </hgroup>
+                    </div>
+                    <div id="selected">
+                        <div class="circle">85%</div>
+                        <hgroup>
+                            <h2>Roger Ebert</h2>
+                            <h3>The New York Times</h3>
+                        </hgroup>
+                    </div>
+                    <div>
+                        <div class="circle">85%</div>
+                        <hgroup>
+                            <h2>Roger Ebert</h2>
+                            <h3>The New York Times</h3>
+                        </hgroup>
+                    </div>                
+                </section> -->
+            </aside>
+            <section id="main">
+                {% if criticInfo %}
+                    {{ criticInfo|safe }}
+                {% else %}
+                <div id="rate-first">
+                    Rate some movies first!
+                </div>
+                {% endif %}
+            </section>
+        </div>
+
+
+        <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script src="static/js/plugins.js"></script>
+        <script src="static/js/main.js"></script>
+    </body>
+</html>
