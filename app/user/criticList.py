@@ -67,4 +67,4 @@ def get_critics(user, reviews):
     for i, critic in enumerate(result):
         result[i]['adjustedScore'] = float(critic['netScore']-averageScore)/abs(averageScore)
 
-    return sorted(result, key=lambda k: -1 * k['adjustedScore'])[:5]
+    return sorted(result, key=lambda k: -1 * k['adjustedScore'])[:8]
