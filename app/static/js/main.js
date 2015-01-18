@@ -77,9 +77,10 @@ jQuery.extend({
     $('#scrollToStage').click(s2s);
     $('#scrollToDash').click(s2d);
 
-    $("li").hover(function(){
-      $(this).children(".overlay").fadeToggle('fast');
-    });
+    // $("li").hover(function(){
+    //   conole.log("hover")
+    //   $(this).children(".overlay").fadeToggle('fast');
+    // });
 
   });
 

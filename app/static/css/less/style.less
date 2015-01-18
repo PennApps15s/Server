@@ -371,9 +371,10 @@ html, body {
                                 width: 200px;
                                 color: white;
                                 padding: 20px;
-                                font-size: 12pt;
+                                font-size: 11pt;
                                 line-height: 1.5;
                                 display: block;
+                                font-style: italic;
                             }
 
                             .ex {
@@ -391,6 +392,10 @@ html, body {
                                 float: right;
                                 height: 37px;
                             }
+                        }
+
+                        &:hover .overlay{
+                            display: block;
                         }
 
                         img.poster {
@@ -683,7 +688,7 @@ html, body {
             font-size: 12pt;
             color: @green;
             display: none;
-            
+
             #scrollToDash {
                 font-size: 12pt;
                 background-color: @bg;

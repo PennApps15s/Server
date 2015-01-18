@@ -395,9 +395,10 @@ body #dashboard section#main #movies ul.movie-grid li .overlay span {
   width: 200px;
   color: white;
   padding: 20px;
-  font-size: 12pt;
+  font-size: 11pt;
   line-height: 1.5;
   display: block;
+  font-style: italic;
 }
 html #dashboard section#main #movies ul.movie-grid li .overlay .ex,
 body #dashboard section#main #movies ul.movie-grid li .overlay .ex {
@@ -414,6 +415,10 @@ body #dashboard section#main #movies ul.movie-grid li .overlay .v {
   padding: 16px;
   float: right;
   height: 37px;
+}
+html #dashboard section#main #movies ul.movie-grid li:hover .overlay,
+body #dashboard section#main #movies ul.movie-grid li:hover .overlay {
+  display: block;
 }
 html #dashboard section#main #movies ul.movie-grid li img.poster,
 body #dashboard section#main #movies ul.movie-grid li img.poster {
