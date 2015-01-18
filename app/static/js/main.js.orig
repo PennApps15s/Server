@@ -36,9 +36,37 @@ jQuery.extend({
 
   $(document).bind('keyup', 'return', s2d);
 
+<<<<<<< HEAD
+    function resetClickListeners(){
+      $('#highest, #newest').click(function(e){
+        $('#highest-grid, #latest-grid, #highest, #newest').toggleClass('s');
+      });
+    }
+    resetClickListeners();
+
+    criticCache = {};
+    $('.critic').click(function(e){
+      criticCache[$('.critic.selected').data('id')] = $('#main').html();
+      
+      $('.critic.selected').removeClass('selected');
+      $('#highest-grid, #latest-grid, #highest, #newest').removeClass('s')
+      $(this).addClass('selected');
+      
+      id = $(this).data('id');
+      if(criticCache[id]){
+        $( "#main" ).html( criticCache[id] );
+        resetClickListeners();
+      }else{
+        $.get( "user/"+id+"/template/", function( data ) {
+          $( "#main" ).html( data );
+          resetClickListeners();
+        });
+      }
+=======
   function resetClickListeners(){
     $('#highest, #newest').click(function(e){
       $('#highest-grid, #latest-grid, #highest, #newest').toggleClass('s');
+>>>>>>> 2c6feee137276adc2257108ea4f632fc75215988
     });
   }
   resetClickListeners()
