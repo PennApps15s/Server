@@ -178,7 +178,7 @@ def get_user_template(user_id):
 @requires_login
 def get_user_critics():
     likes = Review.query.filter(Review.userId == g.user.id).all()
-    if len(likes) < 10:
+    if len(likes) < 2:
         return "User needs more likes", 409
 
     results = []

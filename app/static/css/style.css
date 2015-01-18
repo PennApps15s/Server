@@ -737,6 +737,7 @@ body #stage #done {
   text-align: center;
   font-size: 12pt;
   color: #50e3c2;
+  display: none;
 }
 html #stage #done #scrollToDash,
 body #stage #done #scrollToDash {

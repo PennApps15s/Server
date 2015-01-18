@@ -35,7 +35,7 @@ def main():
     likes = Review.query.filter(Review.userId == g.user.id).all()
     if len(likes) < 10:
         print("Likes too low")
-        criticList = [{'name': '','criticPublication': ''} for i in range(10)]
+        criticList = [{'name': '','criticPublication': ''} for i in range(8)]
     else:
         results = []
         for r in get_critics(g.user, likes):
@@ -43,7 +43,7 @@ def main():
 
         if len(results) == 0:
             print("results 0")
-            criticList = [{'name': '','criticPublication': ''} for i in range(10)]
+            criticList = [{'name': '','criticPublication': ''} for i in range(8)]
         else:
             criticList = results
 

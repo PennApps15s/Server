@@ -19,6 +19,7 @@ jQuery.extend({
   var l = 0;
   var slide = 300;
   var fade = 500;
+  var canEnter = false;
 
   $(function() { 
     itemWidth = $("#0").width();
@@ -37,12 +38,6 @@ jQuery.extend({
 
     $(document).bind('keyup', 'return', s2d);
 
-    function resetClickListeners(){
-      $('#highest, #newest').click(function(e){
-        $('#highest, #newest').toggleClass('s');
-        $('#highest-grid, #latest-grid').toggleClass('shown');
-      });
-    }
     resetClickListeners()
 
     criticCache = {}
@@ -88,6 +83,13 @@ jQuery.extend({
 
   });
 
+  function resetClickListeners(){
+    $('#highest, #newest').click(function(e){
+      $('#highest, #newest').toggleClass('s');
+      $('#highest-grid, #latest-grid').toggleClass('shown');
+    });
+  }
+
   function s2s() {
     $("#stage").prependTo("body").slideDown(700, function() {
       $("#dashboard").hide();
@@ -95,13 +97,15 @@ jQuery.extend({
   }
 
   function s2d() {
-    $("#dashboard").show();
+    if(canEnter){
+      $("#dashboard").show();
 
-    $('html,body').animate({
-      scrollTop: $("#dashboard").offset().top
-    }, 700, function() {
-      $("#stage").hide();
-    });
+      $('html,body').animate({
+        scrollTop: $("#dashboard").offset().top
+      }, 700, function() {
+        $("#stage").hide();
+      });
+    }
   }
 
   function layout() {
@@ -135,6 +139,11 @@ jQuery.extend({
       i++;
       $("#"+i).children(".dark").fadeOut(fade);
       $("#"+i).children(".d").removeClass( "d", fade, "linear");
+      if(i > 3 && i%4==0){
+        loadLowerPane();
+        canEnter = true;
+        $('#done').fadeIn(fade);
+      }
     }
   }
 
@@ -217,6 +226,23 @@ jQuery.extend({
             });
     }
     right(false);
+  }
+
+  function loadLowerPane(){
+    $.get('/user/criticList/', function(data){
+      console.log("Loaded lower pane", data)
+      for(var i in data){
+        $('.critic[data-num='+i+']').attr('data-id', data[i].id)
+        $('.critic[data-num='+i+'] h2').text(data[i].name);
+        $('.critic[data-num='+i+'] h3').text(data[i].criticPublication);
+        $('.critic[data-num='+i+'] .circle').text(data[i].percent+"%");
+      }
+      $.get( "user/"+data[0].id+"/template/", function( results ) {
+        $( "#main" ).html( results );
+        $('#percent').text( $('div[data-id='+data[0].id+'] .circle').text() )
+        resetClickListeners();
+      });
+    });
   }
 
 })();

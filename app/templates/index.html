@@ -33,7 +33,7 @@
                     </div>
                     <div id="down">
                         <button></button>
-                        <span>Down</span>
+                        <span>Dislike</span>
                     </div>
                 </div>
                 <div id="right">
@@ -64,12 +64,14 @@
             <aside>
                 <header id="t">Critics who share your taste in movies</header>
                 <section class="sidebar" id="critics">
-                    <header>Top 10</header>
+                    <header>Top 8</header>
                     {% for critic in criticList %}
                         {% if criticInfo and loop.index==1 %}
-                        <div data-id="{{critic.id}}"class="critic selected">
+                        <div data-id="{{critic.id}}"
+                        data-num="{{loop.index0}}" class="critic selected">
                         {% else %}
-                        <div data-id="{{critic.id}}"class="critic">
+                        <div data-id="{{critic.id}}"
+                        data-num="{{loop.index0}}"class="critic">
                         {% endif %}
                             <div class="circle">{{critic.percent}}%</div>
                             <hgroup>
