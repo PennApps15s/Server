@@ -353,7 +353,6 @@ body #dashboard section#main #movies #thin #sort button#newest {
 }
 html #dashboard section#main #movies ul.movie-grid,
 body #dashboard section#main #movies ul.movie-grid {
-  list-style: none;
   overflow-y: scroll;
   overflow-x: scroll;
   position: absolute;
