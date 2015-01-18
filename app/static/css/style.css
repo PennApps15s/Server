@@ -373,6 +373,7 @@ body #dashboard section#main #movies ul.movie-grid {
   bottom: 0;
   transition: 0.5s opacity linear;
   opacity: 0;
+  display: none;
 }
 html #dashboard section#main #movies ul.movie-grid li,
 body #dashboard section#main #movies ul.movie-grid li {
@@ -473,9 +474,10 @@ body #dashboard section#main #movies ul.movie-grid li .ttl .teeny {
   display: inline-block;
   font-size: 10pt;
 }
-html #dashboard section#main #movies ul.movie-grid.s,
-body #dashboard section#main #movies ul.movie-grid.s {
+html #dashboard section#main #movies ul.movie-grid.shown,
+body #dashboard section#main #movies ul.movie-grid.shown {
   opacity: 1;
+  display: block;
 }
 html #stage,
 body #stage {

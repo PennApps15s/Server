@@ -1,7 +1,7 @@
 <header>
     <div id="rating">
         <div>
-            <span id="percent">TO</span>
+            <span id="percent">{{critic.percent}}%</span>
             <span id="mt">match</span>
         </div>
     </div>
@@ -45,7 +45,7 @@
             </li>
         {% endfor %}
     </ul>
-    <ul id="latest-grid" class="movie-grid s">
+    <ul id="latest-grid" class="movie-grid shown">
         {% for movie in recents %}
             <li>
                 <div class="overlay">

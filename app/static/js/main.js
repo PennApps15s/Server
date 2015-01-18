@@ -39,7 +39,8 @@ jQuery.extend({
 
     function resetClickListeners(){
       $('#highest, #newest').click(function(e){
-        $('#highest-grid, #latest-grid, #highest, #newest').toggleClass('s');
+        $('#highest, #newest').toggleClass('s');
+        $('#highest-grid, #latest-grid').toggleClass('shown');
       });
     }
     resetClickListeners()

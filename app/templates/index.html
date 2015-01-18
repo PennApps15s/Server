@@ -62,16 +62,16 @@
                 </div>
             </header>
             <aside>
-                <header id="t">People who share your taste in movies</header>
+                <header id="t">Critics who share your taste in movies</header>
                 <section class="sidebar" id="critics">
-                    <header>Critics</header>
+                    <header>Top 10</header>
                     {% for critic in criticList %}
                         {% if criticInfo and loop.index==1 %}
                         <div data-id="{{critic.id}}"class="critic selected">
                         {% else %}
                         <div data-id="{{critic.id}}"class="critic">
                         {% endif %}
-                            <div class="circle"></div>
+                            <div class="circle">{{critic.percent}}%</div>
                             <hgroup>
                                 <h2 id="#name-{{ loop.index0 }}">
                                     {{ critic['name'] }}

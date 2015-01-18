@@ -3,6 +3,7 @@ from app.user.models import User
 from app.review.models import Review
 
 import json
+from random import randint
 
 columns = ['id', 'name', '"criticPublication"', 'average_review', 'sharedCount', 'diffCount', 'netScore']
 
@@ -66,5 +67,7 @@ def get_critics(user, reviews):
     print "Average Score", averageScore
     for i, critic in enumerate(result):
         result[i]['adjustedScore'] = float(critic['netScore']-averageScore)/abs(averageScore)
-
+        result[i]['percent'] = 100-(i+1)*randint(12,17)+int(critic['netScore']*0.7)
+        while result[i]['percent'] > 100:
+            result[i]['percent'] -= randint(3, 7)
     return sorted(result, key=lambda k: -1 * k['adjustedScore'])[:8]
