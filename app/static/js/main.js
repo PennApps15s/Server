@@ -233,6 +233,7 @@ jQuery.extend({
     $.get('/user/criticList/', function(data){
       console.log("Loaded lower pane", data)
       for(var i in data){
+        $('.critic.selected').removeClass('selected')
         $('.critic[data-num='+i+']').attr('data-id', data[i].id)
         $('.critic[data-num='+i+'] h2').text(data[i].name);
         $('.critic[data-num='+i+'] h3').text(data[i].criticPublication);
@@ -243,6 +244,7 @@ jQuery.extend({
         $('#percent').text( $('div[data-id='+data[0].id+'] .circle').text() )
         resetClickListeners();
       });
+      $('.critic[data-num=0]').addClass('selected')
     });
   }
 
