@@ -634,8 +634,6 @@ body #stage #controls #center {
   text-align: center;
   width: 94px;
   margin: 0 auto;
-  position: relative;
-  top: -30px;
 }
 html #stage #controls #center #up,
 body #stage #controls #center #up {
@@ -646,22 +644,12 @@ body #stage #controls #center #up {
 html #stage #controls #center #up button,
 body #stage #controls #center #up button {
   background-image: url("../img/key_up.png");
-  display: block;
-  clear: both;
-  margin-bottom: 10px;
 }
 html #stage #controls #center #up button.active,
 body #stage #controls #center #up button.active,
 html #stage #controls #center #up button :active,
 body #stage #controls #center #up button :active {
   background-image: url("../img/key_up_active.png");
-}
-html #stage #controls #center #up span,
-body #stage #controls #center #up span {
-  display: block;
-  margin: 0 auto;
-  width: 38px;
-  text-align: center;
 }
 html #stage #controls #center #up:hover button,
 body #stage #controls #center #up:hover button,
@@ -677,8 +665,9 @@ body #stage #controls #center #up.white span {
 }
 html #stage #controls #center #down,
 body #stage #controls #center #down {
+  width: 100px;
+  padding-top: 7px;
   height: 38px;
-  margin-top: 10px;
   display: block;
 }
 html #stage #controls #center #down button,

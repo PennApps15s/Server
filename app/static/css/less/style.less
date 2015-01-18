@@ -601,8 +601,6 @@ html, body {
                 text-align: center;
                 width: 94px;
                 margin: 0 auto;
-                position: relative;
-                top: -30px;
                 #up {
                     padding-top: 7px;
                     height: 38px;
@@ -612,15 +610,6 @@ html, body {
                         &.active,:active {
                             background-image: url("../img/key_up_active.png");
                         }
-                        display: block;
-                        clear: both;
-                        margin-bottom: 10px;
-                    }
-                    span{
-                        display:block;
-                        margin: 0 auto;
-                        width: 38px;
-                        text-align: center;
                     }
                     &:hover,&.white {
                         button {
@@ -629,14 +618,15 @@ html, body {
                         span {
                             color: white;
                         }
-
+ 
                     }
                 }
-
+ 
                 #down {
+                    width: 100px;
+                    padding-top: 7px;
                     height: 38px;
-                    margin-top: 10px;
-                    display:block;
+                    display: block;
                     button {
                         background-image: url("../img/key_down.png");
                         &.active,:active {
@@ -650,9 +640,11 @@ html, body {
                         span {
                             color: white;
                         }
+ 
                     }
                 }
             }
+
             #right {
                 padding-top: 20px;
                 float: left;
