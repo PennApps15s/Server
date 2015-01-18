@@ -377,12 +377,13 @@ body #dashboard section#main #movies ul.movie-grid li {
   padding-bottom: 80px;
   position: relative;
   width: 240px;
+  vertical-align: top;
 }
 html #dashboard section#main #movies ul.movie-grid li .overlay,
 body #dashboard section#main #movies ul.movie-grid li .overlay {
   display: none;
   position: absolute;
-  top: 0;
+  top: 0px;
   left: 0;
   right: 0;
   height: 360px;
@@ -397,7 +398,6 @@ body #dashboard section#main #movies ul.movie-grid li .overlay span {
   font-size: 12pt;
   line-height: 1.5;
   display: block;
-  font-style: italic;
 }
 html #dashboard section#main #movies ul.movie-grid li .overlay .ex,
 body #dashboard section#main #movies ul.movie-grid li .overlay .ex {
@@ -424,7 +424,6 @@ body #dashboard section#main #movies ul.movie-grid li img.poster {
 }
 html #dashboard section#main #movies ul.movie-grid li .ttl,
 body #dashboard section#main #movies ul.movie-grid li .ttl {
-  vertical-align: top;
   font-weight: 300;
   height: 40px;
   line-height: 40px;
