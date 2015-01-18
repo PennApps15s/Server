@@ -21,7 +21,7 @@ def get_feed(user):
             WHERE reviews."userId" = ''' + str(user.id) + '''
         )
         ORDER BY movies."imdbVotes" DESC
-        LIMIT 12
+        LIMIT 15
     ''')
 
     highest_rated_results = db.engine.execute('''
@@ -34,7 +34,7 @@ def get_feed(user):
             WHERE reviews."userId" = ''' + str(user.id) + '''
         )
         ORDER BY movies."imdbRating" DESC
-        LIMIT 12
+        LIMIT 15
     ''')
 
     feed_movies = []
