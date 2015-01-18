@@ -60,6 +60,7 @@ jQuery.extend({
       }else{
         $.get( "user/"+id+"/template/", function( data ) {
           $( "#main" ).html( data );
+          $('#percent').text( $('div[data-id='+id+'] .circle').text() )
           resetClickListeners();
         });
       }

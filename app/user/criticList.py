@@ -70,4 +70,6 @@ def get_critics(user, reviews):
         result[i]['percent'] = 100-(i+1)*randint(12,17)+int(critic['netScore']*0.7)
         while result[i]['percent'] > 100:
             result[i]['percent'] -= randint(3, 7)
+        while result[i]['percent'] < 40:
+            result[i]['percent'] += randint(10-i, 20-i)
     return sorted(result, key=lambda k: -1 * k['adjustedScore'])[:8]

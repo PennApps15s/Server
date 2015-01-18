@@ -27,11 +27,6 @@ body hr {
   margin: 0;
   border: 0;
 }
-html .overlay .quote,
-body .overlay .quote {
-  font-size: 12pt !important;
-  font-style: italic !important;
-}
 html #dashboard,
 body #dashboard {
   width: 100%;
@@ -382,7 +377,6 @@ body #dashboard section#main #movies ul.movie-grid li {
   padding-bottom: 80px;
   position: relative;
   width: 240px;
-  vertical-align: top;
 }
 html #dashboard section#main #movies ul.movie-grid li .overlay,
 body #dashboard section#main #movies ul.movie-grid li .overlay {
@@ -400,9 +394,10 @@ body #dashboard section#main #movies ul.movie-grid li .overlay span {
   width: 200px;
   color: white;
   padding: 20px;
-  font-size: 16pt;
+  font-size: 12pt;
   line-height: 1.5;
   display: block;
+  font-style: italic;
 }
 html #dashboard section#main #movies ul.movie-grid li .overlay .ex,
 body #dashboard section#main #movies ul.movie-grid li .overlay .ex {
@@ -429,6 +424,7 @@ body #dashboard section#main #movies ul.movie-grid li img.poster {
 }
 html #dashboard section#main #movies ul.movie-grid li .ttl,
 body #dashboard section#main #movies ul.movie-grid li .ttl {
+  vertical-align: top;
   font-weight: 300;
   height: 40px;
   line-height: 40px;
