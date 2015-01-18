@@ -15,7 +15,7 @@ db = SQLAlchemy(app)
 
 @app.errorhandler(404)
 def not_found(error):
-    return "404 ERROR"
+    return "404 ERROR", 404
 
 from app.movie.feed import get_feed
 from app.user.decorators import requires_login
