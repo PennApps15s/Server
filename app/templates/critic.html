@@ -18,15 +18,15 @@
     <div id="thin">
         <h1>{{ critic.name }} recommends:</h1>
         <div id="sort">
-            <button id="highest" class="s">
+            <button id="highest" class="">
                 Highest
             </button>
-            <button id="newest">
+            <button id="newest" class="s">
                 Newest
             </button>
         </div>
     </div>
-    <ul id="highest-grid" class="movie-grid s">
+    <ul id="highest-grid" class="movie-grid">
         {% for movie in favorites %}
             <li>
                 <div class="overlay">
@@ -40,13 +40,12 @@
                 <span class="ttl">
                     <h1>{{ movie['Title'] }}</h1>
                     <span class="year">({{ movie['Year'] }})</span>
-                    <div class="tomato"></div>
-                    <span class="teeny">[TODO]</span>
+                    <span class="teeny">Metacritic: <span>{{movie['metacriticScore']}}</span></span>
                 </span>
             </li>
         {% endfor %}
     </ul>
-    <ul id="latest-grid" class="movie-grid">
+    <ul id="latest-grid" class="movie-grid s">
         {% for movie in recents %}
             <li>
                 <div class="overlay">
@@ -60,8 +59,7 @@
                 <span class="ttl">
                     <h1>{{ movie['Title'] }}</h1>
                     <span class="year">({{ movie['Year'] }})</span>
-                    <div class="tomato"></div>
-                    <span class="teeny">[TODO]</span>
+                    <span class="teeny">Metacritic: <span>{{movie['metacriticScore']}}</span></span>
                 </span>
             </li>
         {% endfor %}

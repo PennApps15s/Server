@@ -13,6 +13,11 @@ html .hidden,
 body .hidden {
   display: none;
 }
+html #highest,
+body #highest {
+  position: relative;
+  left: 5px;
+}
 html hr,
 body hr {
   height: 4px;
@@ -21,6 +26,11 @@ body hr {
   display: block;
   margin: 0;
   border: 0;
+}
+html .overlay .quote,
+body .overlay .quote {
+  font-size: 12pt !important;
+  font-style: italic !important;
 }
 html #dashboard,
 body #dashboard {
@@ -371,6 +381,7 @@ body #dashboard section#main #movies ul.movie-grid li {
   padding-bottom: 80px;
   position: relative;
   width: 240px;
+  vertical-align: top;
 }
 html #dashboard section#main #movies ul.movie-grid li .overlay,
 body #dashboard section#main #movies ul.movie-grid li .overlay {
