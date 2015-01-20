@@ -106,12 +106,12 @@ def get_user_favorites(user_id):
     sql = """
         SELECT movies.id, "Title", "Year", "Rating", "Poster", "metacriticScore", "reviewBody", "imdbID" FROM reviews
         LEFT JOIN movies ON "movieId"=movies.id
-        WHERE "userId" = %s AND "metacriticScore" > 90
+        WHERE "userId" = %s AND "metacriticScore" = 100
             AND "movieId" NOT IN
             (SELECT "movieId" FROM reviews
              WHERE "userId" = %s)
-        ORDER BY "metacriticScore" DESC
-        LIMIT 18
+        ORDER BY "Year" DESC
+        LIMIT 20
         """ % (user_id, g.user.id)
 
     columns = ['id', 'Title', 'Year', 'Rating', 'Poster', 'metacriticScore', 'reviewBody', 'imdbID']
@@ -137,7 +137,7 @@ def get_user_recent(user_id):
             (SELECT "movieId" FROM reviews
              WHERE "userId" = %s)
         ORDER BY "Year" DESC
-        LIMIT 18
+        LIMIT 20
         """ % (user_id, g.user.id)
 
     columns = ['id', 'Title', 'Year', 'Rating', 'Poster', 'metacriticScore', 'reviewBody', 'imdbID']
