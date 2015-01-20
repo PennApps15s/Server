@@ -1,6 +1,6 @@
 from app import db
 
-COLUMNS_FOR_FEED = ['id', '"Title"', '"imdbRating"', '"Poster"', '"Year"', '"Rating"']
+COLUMNS_FOR_FEED = ['id', '"Title"', '"imdbRating"', '"Poster"', '"Year"', '"Rating"', '"imdbID"']
 UNIVERSAL_FILTERS = '''
         movies."Rating" IN (
             'G', 'PG', 'PG-13', 'R', 'TV-PG'

@@ -8,7 +8,7 @@
     <h1><strong>{{ critic.name }}</strong> and <strong>you</strong> both like:</h1>
     <div id="small">
         {% for movie in similars %}
-            <img src="{{ movie['Poster'] }}" alt="{{ movie['Title'] }}">
+            <img src="http://img.omdbapi.com/?apikey=406ed6f8&i={{ movie['imdbID'] }}&h=150" alt="{{ movie['Title'] }}">
         {% endfor %}
         <div id="ellipse">...</div>
     </div>
@@ -36,7 +36,7 @@
                     <img src="static/img/dislike_small.png" class="ex" alt="x">
                     <img src="static/img/like_small.png" class="v" alt="v">
                 </div>
-                <img src="{{ movie['Poster'] }}" class="poster" alt="{{ movie['Title'] }}">
+                <img src="http://img.omdbapi.com/?apikey=406ed6f8&i={{ movie['imdbID'] }}&h=500" class="poster" alt="{{ movie['Title'] }}">
                 <span class="ttl">
                     <h1>{{ movie['Title'] }}</h1>
                     <span class="year">({{ movie['Year'] }})</span>
@@ -55,7 +55,7 @@
                     <img src="static/img/dislike_small.png" class="ex" alt="x">
                     <img src="static/img/like_small.png" class="v" alt="v">
                 </div>
-                <img src="{{ movie['Poster'] }}" class="poster" alt="{{ movie['Title'] }}">
+                <img src="http://img.omdbapi.com/?apikey=406ed6f8&i={{ movie['imdbID'] }}&h=500" class="poster" alt="{{ movie['Title'] }}">
                 <span class="ttl">
                     <h1>{{ movie['Title'] }}</h1>
                     <span class="year">({{ movie['Year'] }})</span>

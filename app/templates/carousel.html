@@ -4,6 +4,6 @@
     	<div class="dark"></div>
     {% endif %}
     <div class="mark default d"></div>
-    <img src="{{ movie['Poster'] }}" alt="{{ movie['Title'] }}">
+    <img src="http://img.omdbapi.com/?apikey=406ed6f8&i={{ movie['imdbID'] }}&h=600" alt="{{ movie['Title'] }}">
 </div>
 {% endfor %}

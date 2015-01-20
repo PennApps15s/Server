@@ -47,14 +47,6 @@ def login():
     else:
         return redirect('/login?error=password')
 
-@mod.route('/', methods=["GET"])
-def get_all():
-    q = User.query.all()
-    result = []
-    for item in q:
-        result.append(item.to_dict())
-    return json.dumps(result), 200, {'Content-Type': 'application/json'}
-
 @mod.route('/<user_id>/', methods=["GET"])
 @requires_login
 def get_user(user_id):
@@ -89,7 +81,7 @@ def get_user_shared_likes(user_id):
         return "User not found", 404
 
     sql = """
-        SELECT movies.id, "Title", "Year", "Rating", "Poster" FROM reviews
+        SELECT movies.id, "Title", "Year", "Rating", "Poster", "imdbID" FROM reviews
         LEFT JOIN movies ON "movieId"=movies.id
         WHERE "userId" = %s AND "movieId" IN
             (SELECT "movieId" FROM reviews
@@ -97,7 +89,7 @@ def get_user_shared_likes(user_id):
         LIMIT 7
         """ % (user_id, g.user.id)
 
-    columns = ['id', 'Title', 'Year', 'Rating', 'Poster']
+    columns = ['id', 'Title', 'Year', 'Rating', 'Poster', 'imdbID']
     result = []
     for row in db.engine.execute(sql):
         data = {}
@@ -112,7 +104,7 @@ def get_user_favorites(user_id):
         return "User not found", 404
 
     sql = """
-        SELECT movies.id, "Title", "Year", "Rating", "Poster", "metacriticScore", "reviewBody" FROM reviews
+        SELECT movies.id, "Title", "Year", "Rating", "Poster", "metacriticScore", "reviewBody", "imdbID" FROM reviews
         LEFT JOIN movies ON "movieId"=movies.id
         WHERE "userId" = %s AND "metacriticScore" > 90
             AND "movieId" NOT IN
@@ -122,7 +114,7 @@ def get_user_favorites(user_id):
         LIMIT 18
         """ % (user_id, g.user.id)
 
-    columns = ['id', 'Title', 'Year', 'Rating', 'Poster', 'metacriticScore', 'reviewBody']
+    columns = ['id', 'Title', 'Year', 'Rating', 'Poster', 'metacriticScore', 'reviewBody', 'imdbID']
     result = []
     for row in db.engine.execute(sql):
         data = {}
@@ -138,7 +130,7 @@ def get_user_recent(user_id):
         return "User not found", 404
 
     sql = """
-        SELECT movies.id, "Title", "Year", "Rating", "Poster", "metacriticScore", "reviewBody" FROM reviews
+        SELECT movies.id, "Title", "Year", "Rating", "Poster", "metacriticScore", "reviewBody", "imdbID" FROM reviews
         LEFT JOIN movies ON "movieId"=movies.id
         WHERE "userId" = %s
             AND "movieId" NOT IN
@@ -148,7 +140,7 @@ def get_user_recent(user_id):
         LIMIT 18
         """ % (user_id, g.user.id)
 
-    columns = ['id', 'Title', 'Year', 'Rating', 'Poster', 'metacriticScore', 'reviewBody']
+    columns = ['id', 'Title', 'Year', 'Rating', 'Poster', 'metacriticScore', 'reviewBody', 'imdbID']
     result = []
     for row in db.engine.execute(sql):
         data = {}
