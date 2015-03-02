@@ -1,4 +1,4 @@
-from flask import Blueprint, request, g
+from flask import Blueprint, request, g, render_template
 
 from app import db
 from app.movie.models import Movie
@@ -15,9 +15,8 @@ movies_blueprint = Blueprint('movies', __name__, url_prefix='/movie')
 @movies_blueprint.route('/feed/', methods=['GET'])
 @requires_login
 def get_movie_feed():
-    movies = get_movie_feed(g.user)
-
-    return json.dumps(movies), 200, {'Content-Type': 'application/json'}
+    movies = get_feed(g.user, int(request.args.get('count')))
+    return render_template("carousel.html", feed=movies, start=int(request.args.get('start'))+1)
 
 @movies_blueprint.route('/<movie_id>/review/', methods=["POST"])
 @requires_login

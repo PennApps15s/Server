@@ -22,6 +22,7 @@ from app.user.decorators import requires_login
 from app.user.criticList import get_critics
 from app.review.models import Review
 from app.user.routes import get_user_shared_likes, get_user_favorites, get_user_recent
+
 @app.route('/')
 @requires_login
 def main():
@@ -58,7 +59,7 @@ def main():
 
     return render_template('index.html',
         carousel_template=carousel.render(
-            feed=get_feed(g.user)
+            feed=get_feed(g.user, 10)
         ),
         criticList=criticList,
         criticInfo=criticTemplate

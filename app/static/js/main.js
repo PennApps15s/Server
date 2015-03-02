@@ -142,8 +142,11 @@ jQuery.extend({
       $("#"+i).children(".d").removeClass( "d", fade, "linear");
       if(i > 3 && i%4==0){
         loadLowerPane();
+        if(!canEnter) $('#done').fadeIn(fade);
         canEnter = true;
-        $('#done').fadeIn(fade);
+      }
+      if(i%6 == 0){
+        loadMoreFeed();
       }
     }
   }
@@ -246,6 +249,14 @@ jQuery.extend({
       });
       $('.critic[data-num=0]').addClass('selected')
     });
+  }
+
+  function loadMoreFeed(){ //TODO: find out why this doesn't work.
+    max = $('.item').last().attr('id')
+    $.get('/movie/feed/?count=6&start='+max, function(data){
+        console.log("loaded more movies", data)
+        $('#carousel').append(data)
+    })
   }
 
 })();

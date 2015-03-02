@@ -1,0 +1,106 @@
+body{
+	background-color: #50E3C2;
+	font-family: "Proxima Nova","Helvetica Neue"
+}
+input{
+	background-color: white;
+	border: none;
+	width: 500px;
+	height: 60px;
+	margin: 4px;
+	border-radius: 30px;
+	padding: 20px;
+	font-family: "Proxima Nova","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+#center{
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+	text-align: center;
+	height:500px;
+	opacity: 0;
+	-moz-transition: opacity 0.5s linear;
+	-ms-transition: opacity 0.5s linear;
+	-webkit-transition: opacity 0.5s linear;
+	transition: opacity 0.5s linear;
+}
+#login{
+	float: left;
+	margin: 10px;
+	margin-left: 250px;
+	margin-top: 50px;
+}
+#signup{
+	float: right;
+	margin: 10px;
+	margin-right: 250px;
+}
+
+#popup{
+	width: 600px;
+	height: auto;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-ms-transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	background-color: #262626;
+	color: white;
+
+	padding: 0 25px;
+
+	font-size: 20px;
+	-moz-transition: top 0.5s linear;
+	-ms-transition: top 0.5s linear;
+	-webkit-transition: top 0.5s linear;
+	transition: top 0.5s linear;
+	z-index: 1000;
+}
+#popup a{
+	color: #50e3c2;
+}
+#popup .hidePopup{
+	font-size: 10pt;
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 10px;
+}
+#popup .larger{
+	font-size: 18pt;
+	text-align: center;
+}
+#popup .title{
+	width: 100%;
+	text-align: center;
+	font-weight: 100;
+	font-size: 40pt;
+}
+#popup .button{
+	display: block;
+	font-size: 18pt;
+	margin: 25px auto;
+	background-color: #262626;
+	color: #50e3c2;
+	border: 1px solid #50e3c2;
+	padding: 5px 14px;
+	border-radius: 14px;
+	cursor: pointer;
+	transition: 0.2s all linear;
+}
+#popup .button:hover{
+	background-color: #50e3c2;
+	color: #262626;
+}
+#popup .footer{
+	margin-top: 50px;
+}
+#popup .footer p{
+	font-size: 12pt;
+	font-weight: 300;
+	line-height: 15pt;
+}

@@ -1,46 +1,23 @@
 <html>
 <head>
-<style>
-	body{
-		background-color: #50E3C2;
-		font-family: "Proxima Nova","Helvetica Neue"
-	}
-	input{
-		background-color: white;
-		border: none;
-		width: 500px;
-		height: 60px;
-		margin: 4px;
-		border-radius: 30px;
-		padding: 20px;
-		font-family: "Proxima Nova","Helvetica Neue",Helvetica,Arial,sans-serif;
-		font-size: 20px;
-	}
-	#center{
-		position: absolute;
-		top: 0;
-		left: 0;
-		bottom: 0;
-		right: 0;
-		margin: auto;
-		text-align: center;
-		height:500px;
-	}
-	form{
-		margin: 10px;
-	}
-	#login{
-		float: left;
-		margin-left: 250px;
-		margin-top: 50px;
-	}
-	#signup{
-		float: right;
-		margin-right: 250px;
-	}
-</style>
+	<title>It's Showtime!</title>
+	<link rel='stylesheet', href='static/css/login.css', type='text/css' />
 </head>
 <body>
+	<div id="popup">
+		<a class="hidePopup" href="#hide" onclick="hidePopup()">Already have an account?</a>
+		<h1 class="title">It's Showtime!</h3>
+		<p class="larger">Movies are inheirantly human. So why do we have computers tell us what movies we'll like?</p> 
+		<form action="user/" method="POST">
+			<input type="hidden" name="name" value="random user">
+			<input type="hidden" name="email" id="js-randomEmail">
+			<input type="hidden" name="password" value="random password">
+			<input class="button" type="submit" value="There must be a better way...">
+		</form>
+		<div class="footer">
+			<p>Built by <a href="https://github.com/pandringa">Peter Andringa</a>, <a href="https://github.com/csu">Christopher Su</a> <a href="https://github.com/willium">Will Strimling</a>, and <a href="https://dribbble.com/sannylin">Sanny Lin</a> at PennApps Spring 2015. If you want to take a peek, all the source is <a href="https://github.com/PennApps15s/Server">on Github</a>.</p>
+		</div>
+	</div>
 	<div id="center">
 		<form id="login" action="user/login/" method="POST">
 			<input type="text" name="email" placeholder="Email">
@@ -59,4 +36,13 @@
 			<input type="submit" value="Submit">
 		</form>
 	</div>
+	<script>
+		document.getElementById('js-randomEmail').setAttribute('value', (Math.random()*Math.random()*Math.random()).toString(36).slice(2))
+		
+		function hidePopup(){
+			document.getElementById('popup').setAttribute('style', 'top: -1000px;');
+			document.getElementById('center').setAttribute('style', 'opacity: 1;');
+		}
+	</script>
 </body>
+</html>

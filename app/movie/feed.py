@@ -10,7 +10,7 @@ UNIVERSAL_FILTERS = '''
         AND (movies."Genre" NOT LIKE 'Documentary, Music')
     '''
 
-def get_feed(user):
+def get_feed(user, count):
     most_voted_results = db.engine.execute('''
         SELECT ''' + ', '.join(COLUMNS_FOR_FEED) + '''
         FROM movies 
@@ -21,8 +21,8 @@ def get_feed(user):
             WHERE reviews."userId" = ''' + str(user.id) + '''
         )
         ORDER BY movies."imdbVotes" DESC
-        LIMIT 25
-    ''')
+        LIMIT %s
+    ''' % (count/2))
 
     highest_rated_results = db.engine.execute('''
         SELECT ''' + ', '.join(COLUMNS_FOR_FEED) + '''
@@ -34,8 +34,8 @@ def get_feed(user):
             WHERE reviews."userId" = ''' + str(user.id) + '''
         )
         ORDER BY movies."imdbRating" DESC
-        LIMIT 25
-    ''')
+        LIMIT %s
+    ''' % (count/2))
 
     feed_movies = []
     for row in most_voted_results:
